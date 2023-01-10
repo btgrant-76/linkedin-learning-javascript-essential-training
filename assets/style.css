@@ -146,3 +146,12 @@ figure {
   background: black;
   color: white;
 }
+
+/* From 05_08 practice */
+.borange {
+  background-color: darkorange;
+}
+
+.goth {
+  color: darkblue;
+}
