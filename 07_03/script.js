@@ -5,6 +5,14 @@
 
 let backpackContents = ["piggy", "headlamp", "pen"];
 
+// backpackContents.pop(); // ["piggy", "headlamp"]
+
+// backpackContents.shift(); // ["headlamp", "pen"]
+
+// backpackContents.pop("headlamp");
+
+backpackContents.push("Poe"); // adds to the end
+
 console.log(backpackContents);
 
 // backpackContents.forEach(function (item) {
