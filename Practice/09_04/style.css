@@ -22,3 +22,15 @@ body {
   height: 6rem;
   background-color: hsl(0, 0%, 90%);
 }
+
+.grid-outline {
+  outline: dashed red;
+}
+
+.highlighted {
+  background-color: yellow;
+}
+
+.dark {
+  background-color: grey;
+}
