@@ -1,13 +1,13 @@
 /**
  * Challenge: Create an event listener
- * - Find the two elements with the .backpack__strap class.
- * - Create a function to output the strap length form.
- * - Iterate through each item with the .backpack__strap class.
- * - Capture the value of the data-side attribute to indicate the strap side.
- * - Create a form element.
- * - Populate the form with an input and a submit button.
- * - Add event listener to each of the strap length forms.
- * - Update strap length value with value submitted from form.
+ * x Find the two elements with the .backpack__strap class.
+ * x Create a function to output the strap length form.
+ * x Iterate through each item with the .backpack__strap class.
+ * x Capture the value of the data-side attribute to indicate the strap side.
+ * x Create a form element.
+ * x Populate the form with an input and a submit button.
+ * x Add event listener to each of the strap length forms.
+ * x Update strap length value with value submitted from form.
  */
 import backpackObjectArray from "./components/data.js";
 
@@ -90,4 +90,32 @@ const main = document.querySelector(".maincontent");
 
 backpackList.forEach((backpack) => {
   main.append(backpack);
+});
+
+const createStrapLengthForm = function (side) {
+  const formContainer = document.createElement("li");
+  formContainer.innerHTML = `
+<form>
+  <input type="number" min="0" max="100" placeholder="New ${side} Length (inches)">
+  <input type="submit" value="Update">
+</form>
+`;
+  return formContainer;
+};
+
+document.querySelectorAll(".backpack__strap").forEach((strap) => {
+  const side = strap.getAttribute("data-side");
+  const formContainer = createStrapLengthForm(side);
+  const display = strap.querySelector("span"); // strap.lastChild;
+
+  formContainer.addEventListener("submit", function (e) {
+    //(e) => {
+    const lengthField = this.querySelector("input[type=number]"); // e.target[0];
+    display.textContent = `${lengthField.value} inches`;
+    lengthField.value = "";
+
+    e.preventDefault();
+  });
+
+  strap.after(formContainer);
 });
